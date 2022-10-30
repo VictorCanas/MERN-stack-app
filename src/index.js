@@ -1,22 +1,23 @@
 const { setDefaultResultOrder } = require('dns');
 const express = require('express');
+const morgan = require('morgan');
 const app = express(); 
 const port = 3000
-// Settings
+// Settings 
 
-// Middlewares
+// Middlewares - functions that act before a route
+app.use(morgan('dev'));
+//this function checks if is formatted in JSON
+app.use(express.json());
  
-// Routes sasd
+// Routes
+app.use(require('./routes/task.routes'));
 
 // Static Files
 
-//Send a HellO World text as an example
-app.get('/', (req, res) => {
- res.send('Hello World!') 
-})
 //Starting the server
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`Server on port ${port}`)
 }); 
  
 
