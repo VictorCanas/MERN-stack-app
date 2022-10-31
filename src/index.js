@@ -21,7 +21,7 @@ app.use('/api/tasks' ,require('./routes/task.routes'));
 //Finds the public folder where index.html is being saved and duisplays on localhost:3000/homepage
 app.use(express.static(path.join(__dirname, 'public')));
 
-
+ 
 //Starting the server 
 app.listen(port, () => {
   console.log(`Server on port ${port}`)
